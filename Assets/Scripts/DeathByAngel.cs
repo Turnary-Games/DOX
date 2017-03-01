@@ -10,6 +10,7 @@ public class DeathByAngel : MonoBehaviour {
 		GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 		GetComponent<TrailRenderer>().autodestruct = true;
 		GetComponent<MeshRenderer>().enabled = false;
+		GetComponent<Collider>().enabled = false;
 	}
 
 }

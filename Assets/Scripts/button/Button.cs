@@ -13,11 +13,17 @@ public class Button : MonoBehaviour {
 		
 		if (buttonType == Type.loadlevel) {
 			Time.timeScale = 1;
+			Time.fixedDeltaTime = Time.timeScale * 0.02f;
 			SceneManager.LoadScene(nextScene);
 		}
 		
-		if (buttonType == Type.exit) 
+		if (buttonType == Type.exit) {
+#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+#else
 			Application.Quit();
+#endif
+		}
 	}
 
 	void Update() {

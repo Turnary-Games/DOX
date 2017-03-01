@@ -27,7 +27,7 @@ public class RayCast : MonoBehaviour {
 				if (button != null) {
 					button.hover = true;
 
-					if (Input.GetMouseButtonDown(0)) {
+					if (Input.GetMouseButtonUp(0)) {
 						// Klickade på en knapp
 						button.Activate();
 						

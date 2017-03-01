@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +18,10 @@ public class PlayerController : MonoBehaviour
 	[Space(12)]
 	public GameObject shockwavePrefab;
 	public GameObject[] activeWithShockwave; // becomes active when shockwave is active, and vice versa
+	
+	public Image shockwaveButton;
+	public Color shockwaveEnabledColor = Color.white;
+	public Color shockwaveDisabledColor = new Color(0.3f,0.3f,0.3f,0.3f);
 
 	private Vector3 origin;
 	private Quaternion rotation;
@@ -48,15 +54,15 @@ public class PlayerController : MonoBehaviour
 			invinincinableMaterial.color = color;
 		}
 
-		if (Input.GetKeyDown(KeyCode.Return)) {
+		if (CrossPlatformInputManager.GetButtonDown("Fire")) {
 			UseShockwave();
 		}
 	}
 
 	void FixedUpdate ()
 	{
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
+		float moveHorizontal = CrossPlatformInputManager.GetAxis ("Horizontal");
+		float moveVertical = CrossPlatformInputManager.GetAxis ("Vertical");
 		
 		if (GetComponent<Rigidbody> ().velocity.magnitude < acceleration) {
 		
@@ -181,7 +187,7 @@ public class PlayerController : MonoBehaviour
 
 	private bool canJump = true;
 	void OnCollisionStay(Collision collider) {
-		if (Input.GetButton ("Jump") && collider.gameObject.tag == "ground" && canJump) {
+		if (CrossPlatformInputManager.GetButton ("Jump") && collider.gameObject.tag == "ground" && canJump) {
 			Jump();
 		}
 	}
@@ -223,6 +229,9 @@ public class PlayerController : MonoBehaviour
 		foreach(var obj in activeWithShockwave) {
 			obj.SetActive(true);
 		}
+
+		shockwaveButton.color = shockwaveEnabledColor;
+		shockwaveButton.raycastTarget = true;
 	}
 
 	void MakeShockwaveUnavailable() {
@@ -231,6 +240,9 @@ public class PlayerController : MonoBehaviour
 		foreach(var obj in activeWithShockwave) {
 			obj.SetActive(false);
 		}
+
+		shockwaveButton.color = shockwaveDisabledColor;
+		shockwaveButton.raycastTarget = false;
 	}
 	#endregion
 

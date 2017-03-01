@@ -23,6 +23,7 @@ public class ChangeScene : MonoBehaviour {
 	// Called from within the "reverse fade" animation
 	public void LoadScene() {
 		Time.timeScale = 1;
+		Time.fixedDeltaTime = Time.timeScale * 0.02f;
 		SceneManager.LoadScene(nextScene);
 	}
 

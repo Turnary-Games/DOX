@@ -19,8 +19,7 @@ public class Shockwave : MonoBehaviour {
 			// velocity = direction * original velocity speed
 			// in this case its velocity is set to away from this object
 			rbody.velocity = diff.normalized * rbody.velocity.magnitude;
-
-
+			
 			DeathByTimer deathTimer = rbody.GetComponent<DeathByTimer>();
 			deathTimer.ResetTimer();
 
