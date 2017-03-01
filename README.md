@@ -13,9 +13,9 @@ You can play the game using your web browser via WebGL at the following link:
 
 ### Latest (v1.0)
 <table>
-<tr><td>Windows</td><td>[32-bit](https://github.com/Turnary-Games/DOX/releases/download/v1.0/DOX_1.0_win32.zip)</td><td>[64-bit](https://github.com/Turnary-Games/DOX/releases/download/v1.0/DOX_1.0_win64.zip)</td></tr>
-<tr><td>OS&nbsp;X</td><td>[32-bit](https://github.com/Turnary-Games/DOX/releases/download/v1.0/DOX_1.0_osx32.zip)</td><td>[64-bit](https://github.com/Turnary-Games/DOX/releases/download/v1.0/DOX_1.0_osx64.zip)</td></tr>
-<tr><td>Linux</td><td>[32-bit](https://github.com/Turnary-Games/DOX/releases/download/v1.0/DOX_1.0_linux32.zip)</td><td>[64-bit](https://github.com/Turnary-Games/DOX/releases/download/v1.0/DOX_1.0_linux64.zip)</td></tr>
+<tr><td>Windows</td><td><a href="https://github.com/Turnary-Games/DOX/releases/download/v1.0/DOX_1.0_win32.zip">32-bit</a></td><td><a href="https://github.com/Turnary-Games/DOX/releases/download/v1.0/DOX_1.0_win64.zip">64-bit</a></td></tr>
+<tr><td>OS&nbsp;X</td><td><a href="https://github.com/Turnary-Games/DOX/releases/download/v1.0/DOX_1.0_osx32.zip">32-bit</a></td><td><a href="https://github.com/Turnary-Games/DOX/releases/download/v1.0/DOX_1.0_osx64.zip">64-bit</a></td></tr>
+<tr><td>Linux</td><td><a href="https://github.com/Turnary-Games/DOX/releases/download/v1.0/DOX_1.0_linux32.zip">32-bit</a></td><td><a href="https://github.com/Turnary-Games/DOX/releases/download/v1.0/DOX_1.0_linux64.zip">64-bit</a></td></tr>
 </table>
 
 ### All versions
