@@ -10,9 +10,9 @@ public class AngelAI : MonoBehaviour {
 	public Rigidbody pulse;
 	public Transform target;
 	public AudioSource source;
+	public ScoreTimer scoreTimer;
 	
 	private bool active = false;
-
 
 	void Update () {
 		if (GameObject.FindGameObjectsWithTag ("pickup").Length == 0)
@@ -95,6 +95,7 @@ public class AngelAI : MonoBehaviour {
 			source.Play();
 			active = true;
 			StartCoroutine("Attack");
+			if (scoreTimer != null) scoreTimer.StartTimer();
 
 			PratilceController.ActivateAll();
 		}
@@ -104,6 +105,8 @@ public class AngelAI : MonoBehaviour {
 		if (active) {
 			active = false;
 			Destroy(this); // One time solution. Can't activate it once deactivated sadly
+			if (scoreTimer != null)
+				scoreTimer.StopTimer();
 		}
 	}
 }

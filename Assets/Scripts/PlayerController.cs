@@ -26,15 +26,15 @@ public class PlayerController : MonoBehaviour
 	private Vector3 origin;
 	private Quaternion rotation;
 	private Rect lifeCounter;
-	private AudioSource source;
+	//private AudioSource source;
 	private Material originalMaterial;
 	private Coroutine invinicbleCoroutine;
 
 	#region Init (Awake, Start)
-	void Awake ()
-	{
-		source = GetComponent<AudioSource> ();
-	}
+	//void Awake ()
+	//{
+	//	source = GetComponent<AudioSource> ();
+	//}
 	
 	void Start ()
 	{
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
 		{
 			other.gameObject.SetActive(false);
 			lives++;
-			source.Play ();
+			//source.Play ();
 
 			foreach (LifeCounter lifeCounter in FindObjectsOfType<LifeCounter>()) {
 				lifeCounter.LifeUpdate();
@@ -113,7 +113,6 @@ public class PlayerController : MonoBehaviour
 	void OnCollisionEnter(Collision collider) {
 		if (collider.gameObject.tag == "pulse") {
 			ReturnToOrigin ();
-
 		}
 	}
 	#endregion

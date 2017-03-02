@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: bb786739a0405b8428603bb9ddf86d69
+timeCreated: 1488457693
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Solari
+  fontNames:
+  - Solari
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
