@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 	public Image shockwaveButton;
 	public Color shockwaveEnabledColor = Color.white;
 	public Color shockwaveDisabledColor = new Color(0.3f,0.3f,0.3f,0.3f);
+	public ScoreTimer scoreTimer;
 
 	private Vector3 origin;
 	private Quaternion rotation;
@@ -123,11 +124,12 @@ public class PlayerController : MonoBehaviour
 
 		// CHIF NOIT INVININICCBLE
 		if (gameObject.layer != 9) {
-				lives--;
+			lives--;
+			scoreTimer.SpeedUp();
 
-				foreach (LifeCounter lifeCounter in FindObjectsOfType<LifeCounter>()) {
-					lifeCounter.LifeUpdate();
-				}
+			foreach (LifeCounter lifeCounter in FindObjectsOfType<LifeCounter>()) {
+				lifeCounter.LifeUpdate();
+			}
 
 			TurnInvincablele();
 
@@ -143,6 +145,7 @@ public class PlayerController : MonoBehaviour
 		} else if (lives == 0) {
 			lives = -666;
 			FindObjectOfType<ChangeScene>().StartAnimation("mainMenu");
+			scoreTimer.StopTimer(false);
 		}
 
 		ResetTrails ();
@@ -179,7 +182,6 @@ public class PlayerController : MonoBehaviour
 	public void ResetTrails() {
 		GetComponent<TrailRenderer> ().time *= -1;
 	}
-	
 	#endregion
 
 	#region Jump (OnCollisionStay, Jump, JumpCooldown)

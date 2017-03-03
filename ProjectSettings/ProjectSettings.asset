@@ -125,7 +125,15 @@ PlayerSettings:
     Others: 0
   bundleIdentifier: com.turnary.dox
   bundleVersion: 1.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 8300000, guid: 1b47d05ad03cbc34788a659b45725cf8, type: 3}
+  - {fileID: 8300000, guid: 63eea4674c7ebb94abfac792f0c2e057, type: 3}
+  - {fileID: 8300000, guid: 005bf3efd5a58504a919866cfad3d877, type: 3}
+  - {fileID: 8300000, guid: 24404cad0e925c643956a58f4c5518ed, type: 3}
+  - {fileID: 8300000, guid: 9f7568ec9e4eb3d4782d973c1ab0330a, type: 3}
+  - {fileID: 8300000, guid: 36b92bceafd3eb14ca3751b5b93dfbe1, type: 3}
+  - {fileID: 8300000, guid: d09448f8780c76f4496df91cf9b50b53, type: 3}
+  - {fileID: 8300000, guid: 53cbff51575eb9d4aa02445953916aed, type: 3}
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
   xboxOneDisableKinectGpuReservation: 0

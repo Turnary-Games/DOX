@@ -106,7 +106,7 @@ public class AngelAI : MonoBehaviour {
 			active = false;
 			Destroy(this); // One time solution. Can't activate it once deactivated sadly
 			if (scoreTimer != null)
-				scoreTimer.StopTimer();
+				scoreTimer.StopTimer(saveHighscore:true);
 		}
 	}
 }
