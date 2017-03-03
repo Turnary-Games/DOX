@@ -291,12 +291,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -330,9 +330,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 115011538}
   - {fileID: 319382683}
   - {fileID: 247174972}
+  - {fileID: 115011538}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -371,7 +371,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 60123578}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -816,7 +816,6 @@ GameObject:
   - component: {fileID: 208120330}
   - component: {fileID: 208120329}
   - component: {fileID: 208120328}
-  - component: {fileID: 208120327}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -842,18 +841,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.5}
   m_SizeDelta: {x: -20, y: -11}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &208120327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 208120325}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cae791ff1c8a9204f98f6bd127c23628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fade: {fileID: 147667738}
 --- !u!114 &208120328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,7 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7352941, g: 0.88472486, b: 1, a: 1}
+  m_Color: {r: 0.44705883, g: 0.76862746, b: 0.84705883, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -955,7 +942,7 @@ MonoBehaviour:
   pulse: {fileID: 5402432, guid: 40e5ce6f30daf2b4888976e0d86929e9, type: 2}
   target: {fileID: 1823581112}
   source: {fileID: 236075024}
-  scoreTimer: {fileID: 208120327}
+  scoreTimer: {fileID: 247174975}
 --- !u!82 &236075024
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1046,6 +1033,7 @@ GameObject:
   - component: {fileID: 247174972}
   - component: {fileID: 247174974}
   - component: {fileID: 247174973}
+  - component: {fileID: 247174975}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -1066,12 +1054,12 @@ RectTransform:
   - {fileID: 208120326}
   - {fileID: 147667737}
   m_Father: {fileID: 60123578}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.4, y: 0.93000007}
-  m_AnchorMax: {x: 0.6, y: 1}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 42}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &247174973
 MonoBehaviour:
@@ -1085,7 +1073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6911765, g: 0.93933827, b: 1, a: 0.747}
+  m_Color: {r: 0.44766435, g: 0.7674246, b: 0.8455882, a: 0.747}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1106,6 +1094,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 247174971}
+--- !u!114 &247174975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 247174971}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae791ff1c8a9204f98f6bd127c23628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fade: {fileID: 147667738}
+  text: {fileID: 208120329}
+  timePenalty: 5
+  timePenaltyPrefab: {fileID: 1584798938924756, guid: 6e87c6344208f2d46b9eb962bc312e53,
+    type: 2}
 --- !u!1 &258662864
 GameObject:
   m_ObjectHideFlags: 0
@@ -3980,7 +3984,7 @@ RectTransform:
   m_Children:
   - {fileID: 1756680803}
   m_Father: {fileID: 60123578}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -4734,10 +4738,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angelAI: {fileID: 236075023}
-  health: 6
-  inveainebleTime: 5
+  health: 50
   healthbar: {fileID: 1756680804}
   fading: {fileID: 115011542}
+  explosionPrefab: {fileID: 1924842837717470, guid: 1ca040cdc44fb584e8eb79f676afb67c,
+    type: 2}
   slowmoScale: 0.1
   slowmoSpeed: 0.005
   dead: 0
@@ -19846,9 +19851,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 6
+  m_MaxValue: 50
   m_WholeNumbers: 1
-  m_Value: 2
+  m_Value: 15
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -20317,13 +20322,15 @@ MonoBehaviour:
   invisitimer: 2
   jumpspeed: 600
   shockwavePrefab: {fileID: 164800, guid: 0baddbdaa7f642346908631cd77976b5, type: 2}
+  explosionPrefab: {fileID: 1924842837717470, guid: 1ca040cdc44fb584e8eb79f676afb67c,
+    type: 2}
   activeWithShockwave:
   - {fileID: 1034773794}
   - {fileID: 337792872}
   shockwaveButton: {fileID: 702538980}
   shockwaveEnabledColor: {r: 1, g: 1, b: 1, a: 1}
   shockwaveDisabledColor: {r: 0.3, g: 0.3, b: 0.3, a: 0.3}
-  scoreTimer: {fileID: 208120327}
+  scoreTimer: {fileID: 247174975}
 --- !u!54 &1823581114
 Rigidbody:
   m_ObjectHideFlags: 0

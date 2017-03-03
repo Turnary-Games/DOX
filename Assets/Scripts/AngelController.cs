@@ -6,15 +6,14 @@ public class AngelController : MonoBehaviour {
 
 	public AngelAI angelAI;
 	public int health = 1;
-	public float inveainebleTime;
 	[Space(12)]
 	public Slider healthbar;
 	public ChangeScene fading;
+	public GameObject explosionPrefab;
 	[Space(12)]
 	public float slowmoScale;
 	public float slowmoSpeed;
-
-	private bool invinianbel;
+	
 	[HideInInspector] public bool dead;
 
 	void Start() {
@@ -33,16 +32,15 @@ public class AngelController : MonoBehaviour {
 	void TakeDamage(DeathByAngel deathAngel) {
 		if (deathAngel.active) {
 			TakeDamage(deathAngel.damage);
+			var clone = Instantiate(explosionPrefab, deathAngel.transform.position, Quaternion.identity);
+			clone.transform.localScale = Vector3.one * Mathf.Max(1, deathAngel.damage * 0.3f);
 			deathAngel.Kill();
 		}
 	}
 
 	void TakeDamage(int amount) {
-		if (!invinianbel && !dead) {
+		if (!dead) {
 			health -= amount;
-
-			if (health > 0) 
-				StartCoroutine(Inviniicble());
 
 			HealthUpdate();
 		}
@@ -65,14 +63,6 @@ public class AngelController : MonoBehaviour {
 		var player = FindObjectOfType<PlayerController>();
 		player.gameObject.layer = 9;
 		player.StopInvinainbCoroutine();
-	}
-
-	IEnumerator Inviniicble() {
-		invinianbel = true;
-
-		yield return new WaitForSeconds(inveainebleTime);
-
-		invinianbel = false;
 	}
 
 	void OnTriggerEnter(Collider other) {

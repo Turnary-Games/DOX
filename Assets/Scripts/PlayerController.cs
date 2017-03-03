@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 	public float jumpspeed;
 	[Space(12)]
 	public GameObject shockwavePrefab;
+	public GameObject explosionPrefab;
 	public GameObject[] activeWithShockwave; // becomes active when shockwave is active, and vice versa
 	
 	public Image shockwaveButton;
@@ -100,6 +101,7 @@ public class PlayerController : MonoBehaviour
 		}
 		
 		if (other.gameObject.tag == "bullet") {
+			Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 			Destroy(other.gameObject);
 			ReturnToOrigin ();
 		}
@@ -113,6 +115,7 @@ public class PlayerController : MonoBehaviour
 
 	void OnCollisionEnter(Collision collider) {
 		if (collider.gameObject.tag == "pulse") {
+			Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 			ReturnToOrigin ();
 		}
 	}
@@ -125,7 +128,7 @@ public class PlayerController : MonoBehaviour
 		// CHIF NOIT INVININICCBLE
 		if (gameObject.layer != 9) {
 			lives--;
-			scoreTimer.SpeedUp();
+			scoreTimer.AddTimePenalty();
 
 			foreach (LifeCounter lifeCounter in FindObjectsOfType<LifeCounter>()) {
 				lifeCounter.LifeUpdate();

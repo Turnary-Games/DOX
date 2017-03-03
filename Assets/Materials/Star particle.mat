@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: "spelare od\xF6dlig"
-  m_Shader: {fileID: 4800000, guid: f9d19c1dce1a0e84a8526e65e0e0686c, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
+  m_Name: Star particle
+  m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -48,7 +48,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3c7fd3808a9e49442a10ec5367bea1a8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -69,12 +69,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _Ramp
-      second:
-        m_Texture: {fileID: 2800000, guid: 207cd7d6bdf48884581528e5cefd1cd7, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
         name: _BumpScale
@@ -89,11 +83,17 @@ Material:
         name: _DstBlend
       second: 0
     - first:
-        name: _EmissionScaleUI
-      second: 0
+        name: _GlossMapScale
+      second: 1
     - first:
         name: _Glossiness
       second: 0.5
+    - first:
+        name: _GlossyReflections
+      second: 1
+    - first:
+        name: _InvFade
+      second: 1
     - first:
         name: _Metallic
       second: 0
@@ -107,8 +107,11 @@ Material:
         name: _Parallax
       second: 0.02
     - first:
-        name: _RimPower
-      second: 1.4
+        name: _SmoothnessTextureChannel
+      second: 0
+    - first:
+        name: _SpecularHighlights
+      second: 1
     - first:
         name: _SrcBlend
       second: 1
@@ -121,19 +124,10 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 0.52205884, b: 0.5319472, a: 0.8335212}
+      second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
-        name: _EmissionColorUI
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _LColor
-      second: {r: 0.26868808, g: 0.23113105, b: 0.5514706, a: 1}
-    - first:
-        name: _RimColor
-      second: {r: 0.5808823, g: 0.5808823, b: 0.5808823, a: 0.4862745}
-    - first:
-        name: _SColor
-      second: {r: 0.4705882, g: 0.010380632, b: 0.010380632, a: 1}
+        name: _TintColor
+      second: {r: 0.21799307, g: 0.5896011, b: 0.61764705, a: 0.5}

@@ -3,50 +3,62 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Text))]
 public class ScoreTimer : MonoBehaviour {
 
-	private float extra;
-	private float start;
-	private Text text;
 	public static float highscore = -1;
-	private int speedMultiplier;
+	public static float oldScore = -1;
+	public static bool newHighscore;
+
 	public Image fade;
+	public Text text;
+	public float timePenalty = 5;
+	public GameObject timePenaltyPrefab;
+
+	private float extra = 0;
+	private float start;
 
 	private void Awake() {
-		text = GetComponent<Text>();
 		LoadHighscore();
-		speedMultiplier = 1;
 	}
 
 	public void StartTimer() {
 		start = Time.time;
-		extra = 0;
+		oldScore = -1;
 		this.enabled = true;
 	}
 
-	public void SpeedUp() {
-		if (speedMultiplier < 4 && this.enabled) {
-			extra = (Time.time - start) * speedMultiplier + extra;
+	public void AddTimePenalty() {
+		if (this.enabled) {
+			extra = (Time.time - start) + extra + timePenalty;
 			start = Time.time;
-			
-			fade.canvasRenderer.SetAlpha(1);
-			fade.CrossFadeAlpha(0, 1, false);
+		} else
+			extra += timePenalty;
 
-			speedMultiplier += 1;
-		}
+		fade.color = Color.white;
+		fade.canvasRenderer.SetAlpha(1);
+		fade.CrossFadeAlpha(0, 1, false);
+
+		if (!this.enabled)
+			Update();
+
+		// Spawn prefab
+		var clone = Instantiate(timePenaltyPrefab);
+		clone.transform.SetParent(transform.parent, false);
+		(clone.transform as RectTransform).anchoredPosition = (timePenaltyPrefab.transform as RectTransform).anchoredPosition;
 	}
 
 	public void StopTimer(bool saveHighscore) {
 		if (this.enabled) {
 			this.enabled = false;
-			float passed = (Time.time - start) * speedMultiplier + extra;
-			text.text = FormatTime(passed);
+			oldScore = (Time.time - start) + extra;
+			text.text = FormatTime(oldScore);
 			if (saveHighscore) {
-				if (passed < highscore || highscore < 0) {
-					highscore = passed;
+				if (oldScore < highscore || highscore < 0) {
+					highscore = oldScore;
 					PlayerPrefs.SetFloat("highscore", highscore);
-				}
+					newHighscore = true;
+				} else
+					newHighscore = false;
 			}
 		}
 	}
@@ -57,19 +69,20 @@ public class ScoreTimer : MonoBehaviour {
 	}
 
 	private void Update() {
-		float passed = (Time.time - start) * speedMultiplier + extra;
-		text.text = FormatTime(passed, speedMultiplier);
+		if (this.enabled) {
+			float passed = (Time.time - start) + extra;
+			text.text = FormatTime(passed);
+		} else {
+			text.text = FormatTime(extra);
+		}
 	}
 
-	public static string FormatTime(float seconds, int speedMultiplier = 1) {
+	public static string FormatTime(float seconds) {
 		int min = Mathf.FloorToInt(seconds/60) % 60;
 		int sec = Mathf.FloorToInt(seconds) % 60;
 		int centi = Mathf.FloorToInt(seconds * 100) % 100;
-
-		if (speedMultiplier <= 1)
-			return string.Format("{0} {1} {2}", min.ToString("D2"), sec.ToString("D2"), centi.ToString("D2"));
-		else
-			return string.Format("{0} {1} {2} x{3}", min.ToString("D2"), sec.ToString("D2"), centi.ToString("D2"), speedMultiplier.ToString("D1"));
+		
+		return string.Format("{0} {1} {2}", min.ToString("D2"), sec.ToString("D2"), centi.ToString("D2"));
 	}
 
 }
