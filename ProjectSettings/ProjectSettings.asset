@@ -124,7 +124,7 @@ PlayerSettings:
     16:9: 1
     Others: 0
   bundleIdentifier: com.turnary.dox
-  bundleVersion: 1.1
+  bundleVersion: 1.2
   preloadedAssets:
   - {fileID: 8300000, guid: 1b47d05ad03cbc34788a659b45725cf8, type: 3}
   - {fileID: 8300000, guid: 63eea4674c7ebb94abfac792f0c2e057, type: 3}

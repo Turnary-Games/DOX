@@ -9,6 +9,8 @@ public class BatchBuild {
 	public static void BuildGame() {
 		// Get filename
 		string path = EditorUtility.SaveFilePanel("Choose location of built games", "", "", "");
+		if (path.Length == 0) return;
+
 		string filename;
 		if (Path.GetExtension(path) == ".All files")
 			filename = Path.GetFileNameWithoutExtension(path);
@@ -25,15 +27,18 @@ public class BatchBuild {
 		_BuildGame(path, filename, BuildTarget.StandaloneLinux);
 		string f = _BuildGame(path, filename, BuildTarget.StandaloneLinux64);
 
-		EditorUtility.RevealInFinder(f);
 
 		Debug.Log("Batch build complete!");
+		EditorUtility.DisplayDialog("Batch Build", "Building for Windows 32bit, Windows 64bit, OS X 32bit, OS X 64bit, Linux 32bit, Linux 64bit complete!", "OK");
+		EditorUtility.RevealInFinder(f);
 	}
 
 	[MenuItem("Batch Build/Batch Build and Zip Standalones (OS X, Windows, Linux)")]
 	public static void BuildGameAndZip() {
 		// Get filename
 		string path = EditorUtility.SaveFilePanel("Choose location of built games", "", "", "");
+		if (path.Length == 0) return;
+
 		string filename;
 		if (Path.GetExtension(path) == ".All files")
 			filename = Path.GetFileNameWithoutExtension(path);
@@ -48,9 +53,10 @@ public class BatchBuild {
 		_BuildGameAndZip(path, filename, BuildTarget.StandaloneLinux);
 		string f = _BuildGameAndZip(path, filename, BuildTarget.StandaloneLinux64);
 
-		EditorUtility.RevealInFinder(f);
 
 		Debug.Log("Batch build complete!");
+		EditorUtility.DisplayDialog("Batch Zip Build", "Building and zipping for Windows 32bit, Windows 64bit, OS X 32bit, OS X 64bit, Linux 32bit, Linux 64bit complete!", "OK");
+		EditorUtility.RevealInFinder(f);
 	}
 
 	private static string _BuildGame(string path, string filename, BuildTarget target) {
