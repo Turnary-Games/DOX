@@ -12,9 +12,10 @@ public class HighscoreDisplay : MonoBehaviour {
 	}
 
 	private void Start() {
-		if (ScoreTimer.highscore < 0)
+		if (ScoreTimer.highscore < 0) { 
 			gameObject.SetActive(false);
-		else {
+			text.gameObject.SetActive(false);
+		} else {
 			text.text = ScoreTimer.FormatTime(ScoreTimer.highscore);
 		}
 	}
